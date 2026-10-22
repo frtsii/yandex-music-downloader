@@ -11,7 +11,7 @@ version = "3.5.4"
 description = "Загрузчик музыки с сервиса Яндекс.Музыка"
 requires-python = ">=3.9"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
 authors = [
     { name = "Lev Plyusnin" },
     { name = "frtsii" }
@@ -41,3 +41,7 @@ yandex-music-downloader-gui = "ymd.gui:main"
 Homepage = "https://github.com/frtsii/yandex-music-downloader"
 Repository = "https://github.com/frtsii/yandex-music-downloader"
 Issues = "https://github.com/frtsii/yandex-music-downloader/issues"
+
+[tool.setuptools.packages.find]
+include = ["ymd*"]
+exclude = ["app*", "tests*"]

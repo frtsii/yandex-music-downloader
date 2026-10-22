@@ -47,5 +47,7 @@ dist/
 .idea/
 .vscode/
 *.log
+action-logs*/
+action-logs.zip
 Thumbs.db
 .DS_Store
