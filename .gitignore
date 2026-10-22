@@ -1,0 +1,51 @@
+# Secrets and local application state
+oauth-token.txt
+settings.json
+history.json
+gui-settings.json
+gui-history.json
+*.token
+.env
+.env.*
+
+# Downloaded media and portable runtime
+Music/
+data/
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.lrc
+YandexMusicDownloader.exe
+YandexMusicWorker.exe
+flutter_windows.dll
+msvcp140.dll
+vcruntime140.dll
+vcruntime140_1.dll
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage*
+htmlcov/
+
+# Flutter and Dart
+app/.dart_tool/
+app/build/
+app/.flutter-plugins*
+app/windows/flutter/ephemeral/
+
+# Packaging and tools
+build/
+dist/
+*.spec
+.build/
+.idea/
+.vscode/
+*.log
+Thumbs.db
+.DS_Store

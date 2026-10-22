@@ -1,0 +1,43 @@
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-git"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yandex-music-downloader"
+version = "3.5.4"
+description = "Загрузчик музыки с сервиса Яндекс.Музыка"
+requires-python = ">=3.9"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Lev Plyusnin" },
+    { name = "frtsii" }
+]
+keywords = ["yandex-music", "downloader", "lrc", "sylt", "flutter"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3"
+]
+dependencies = [
+    "yandex-music @ https://github.com/llistochek/yandex-music-api/archive/9623fbca7704f47766614efe51d66c9fd496714c.zip",
+    "mutagen>=1.47.0",
+    "StrEnum",
+    "pycryptodome",
+    "requests>=2.28",
+    "customtkinter>=5.2"
+]
+
+[project.scripts]
+yandex-music-downloader = "ymd.cli:main"
+
+[project.gui-scripts]
+yandex-music-downloader-gui = "ymd.gui:main"
+
+[project.urls]
+Homepage = "https://github.com/frtsii/yandex-music-downloader"
+Repository = "https://github.com/frtsii/yandex-music-downloader"
+Issues = "https://github.com/frtsii/yandex-music-downloader/issues"
