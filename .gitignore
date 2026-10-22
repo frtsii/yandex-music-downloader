@@ -48,6 +48,6 @@ dist/
 .vscode/
 *.log
 action-logs*/
-action-logs.zip
+action-logs*.zip
 Thumbs.db
 .DS_Store

@@ -41,10 +41,16 @@ try {
     Copy-Item (Join-Path $flutterRelease '*') $stageRoot -Recurse -Force
     Copy-Item (Join-Path $workerDist 'YandexMusicWorker.exe') $stageRoot -Force
 
-    $redistRoot = 'C:\Program Files (x86)\Microsoft Visual Studio\2022'
-    $crtFiles = Get-ChildItem $redistRoot -Recurse -ErrorAction SilentlyContinue `
-        -Include msvcp140.dll,vcruntime140.dll,vcruntime140_1.dll |
-        Where-Object { $_.FullName -match '\\x64\\Microsoft\.VC14\d*\.CRT\\' } |
+    $redistRoots = @(
+        (Join-Path $env:ProgramFiles 'Microsoft Visual Studio\2022'),
+        (Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio\2022')
+    ) | Where-Object { Test-Path -LiteralPath $_ }
+    $crtFiles = $redistRoots |
+        ForEach-Object {
+            Get-ChildItem $_ -Recurse -ErrorAction SilentlyContinue `
+                -Include msvcp140.dll,vcruntime140.dll,vcruntime140_1.dll
+        } |
+        Where-Object { $_.FullName -like '*\x64\Microsoft.VC14*.CRT\*' } |
         Group-Object Name |
         ForEach-Object { $_.Group | Sort-Object FullName -Descending | Select-Object -First 1 }
     if ($crtFiles.Count -ne 3) {
